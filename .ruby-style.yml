@@ -1,0 +1,93 @@
+# This is a genric set of Rubocop style configurations.
+#
+# These configurations are inteneded to be inherited and overriden
+# as needed by any ruby project that pulls them in.
+#
+# Note that many rules under "Lint/" have had their severity raised to "error".
+# We currently consider violations of such rules to require *immidiate*
+# resultion as they represent broken or dangerously invalid code.
+#
+# All other violations are categorized with a severity of "warning" or lower.
+# When first introducing these rules to your project, it is recommended to
+# set Rubocop's "--failure-threshold" option to "error" until all warnings
+# are addressed.
+#
+# It is strongly discouraged to leverage Rubocop's exclude/ignore settings
+# for violations you intend to fix in the future.
+# These exclusion rules tend to outlast the code they reference
+# and should be considered an an anti-pattern.
+#
+# @see https://github.com/bbatsov/rubocop/blob/master/config/default.yml
+
+AllCops:
+  TargetRubyVersion: 2.2
+
+## Lint
+
+Lint/CircularArgumentReference:
+  Severity: error
+
+Lint/Debugger:
+  Severity: error
+
+Lint/DuplicateMethods:
+  Severity: error
+
+Lint/DuplicatedKey:
+  Severity: error
+
+Lint/EachWithObjectArgument:
+  Severity: error
+
+Lint/EndAlignment:
+  AlignWith: start_of_line
+
+Lint/Eval:
+  Severity: error
+
+Lint/UnreachableCode:
+  Severity: error
+
+Lint/UselessComparison:
+  Severity: error
+
+## Metrics
+
+Metrics/LineLength:
+  Max: 120
+  Severity: refactor
+
+Metrics/MethodLength:
+  Severity: refactor
+
+## Style
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DotPosition:
+  EnforcedStyle: leading
+
+Style/IndentArray:
+  EnforcedStyle: consistent
+
+Style/IndentHash:
+  EnforcedStyle: consistent
+
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
