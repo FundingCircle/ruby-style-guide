@@ -19,6 +19,8 @@
 #
 # @see https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 
+inherit_from: .rails-style.yml
+
 AllCops:
   TargetRubyVersion: 2.2
 
