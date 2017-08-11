@@ -1,11 +1,11 @@
-# This is a genric set of Rubocop style configurations.
+# This is a generic set of Rubocop style configurations.
 #
-# These configurations are inteneded to be inherited and overriden
+# These configurations are intended to be inherited and overriden
 # as needed by any ruby project that pulls them in.
 #
 # Note that many rules under "Lint/" have had their severity raised to "error".
-# We currently consider violations of such rules to require *immidiate*
-# resultion as they represent broken or dangerously invalid code.
+# We currently consider violations of such rules to require *immediate*
+# resolution as they represent broken or dangerously invalid code.
 #
 # All other violations are categorized with a severity of "warning" or lower.
 # When first introducing these rules to your project, it is recommended to
@@ -15,14 +15,13 @@
 # It is strongly discouraged to leverage Rubocop's exclude/ignore settings
 # for violations you intend to fix in the future.
 # These exclusion rules tend to outlast the code they reference
-# and should be considered an an anti-pattern.
+# and should be considered an anti-pattern.
 #
 # @see https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 
-inherit_from: .rails-style.yml
-
 AllCops:
-  TargetRubyVersion: 2.2
+  # This should be overriden in the project `.rubocop.yml` file
+  TargetRubyVersion: 2.4
 
 ## Lint
 
@@ -62,34 +61,34 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Severity: refactor
 
-## Style
+## Layout
 
-Style/AlignParameters:
+Layout/AlignParameters:
   EnforcedStyle: with_fixed_indentation
 
-Style/BlockDelimiters:
+Layout/BlockDelimiters:
   EnforcedStyle: braces_for_chaining
 
-Style/BracesAroundHashParameters:
+Layout/BracesAroundHashParameters:
   EnforcedStyle: context_dependent
 
-Style/ClassAndModuleChildren:
+Layout/ClassAndModuleChildren:
   Enabled: false
 
-Style/Documentation:
+Layout/Documentation:
   Enabled: false
 
-Style/DotPosition:
+Layout/DotPosition:
   EnforcedStyle: leading
 
-Style/IndentArray:
+Layout/IndentArray:
   EnforcedStyle: consistent
 
-Style/IndentHash:
+Layout/IndentHash:
   EnforcedStyle: consistent
 
-Style/MultilineMethodCallIndentation:
+Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
-Style/TrailingCommaInLiteral:
+Layout/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
