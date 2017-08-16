@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/build
+    docker:
+      - image: circleci/ruby:2.4.1
+
+    steps:
+      - checkout
+
+      # Restore bundle cache
+      - type: cache-restore
+        key: gems-{{ checksum "Gemfile.lock" }}
+
+      # Bundle install dependencies
+      - run: bundle install --path vendor/bundle
+
+      # Store bundle cache
+      - type: cache-save
+        key: gems-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+
+      # Verify validity sample Rubocop configuration
+      - run: bundle exec rake rubocop
